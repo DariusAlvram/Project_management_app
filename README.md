@@ -9,7 +9,6 @@ Frontend: HTML, CSS, y JavaScript junto con AdminLTE3 para las vistas y la inter
 
 ## Construido con
 * [![Django][Django.com]][Django-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
