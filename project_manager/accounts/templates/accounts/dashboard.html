@@ -14,7 +14,7 @@
         <div class="info-box-content">
           <span class="info-box-text">CPU Traffic</span>
           <span class="info-box-number">
-            10
+            1
             <small>%</small>
           </span>
         </div>
@@ -29,7 +29,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Likes</span>
-          <span class="info-box-number">41,410</span>
+          <span class="info-box-number">2</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -46,7 +46,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Sales</span>
-          <span class="info-box-number">760</span>
+          <span class="info-box-number">2</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -59,7 +59,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">New Members</span>
-          <span class="info-box-number">2,000</span>
+          <span class="info-box-number">3</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -289,7 +289,7 @@
               <h3 class="card-title">Latest Members</h3>
 
               <div class="card-tools">
-                <span class="badge badge-danger">8 New Members</span>
+                <span class="badge badge-danger">3 New Members</span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
                 </button>
@@ -330,7 +330,7 @@
               <h3 class="card-title">Notifications</h3>
 
               <div class="card-tools">
-                <span title="3 New Messages" class="badge badge-warning">3</span>
+                <span title="{{ notifications_count }} New Messages" class="badge badge-warning">{{ notifications_count }}</span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
                 </button>
@@ -346,32 +346,22 @@
               <div class="direct-chat-messages">
 
                 <!-- notifications -->
+                 {% for notification in latest_notifications %}
                 <div class="direct-chat-msg">
                   <div class="direct-chat-infos clearfix">                        
-                    <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    <span class="direct-chat-timestamp float-right">{{ notification.notification_time_formatted }}</span>
                   </div>
                   <!-- /.notification-infos -->
-                  <img class="direct-chat-img" src="{% static "./dist/img/AdminLTELogo.png" %}" alt="message user image">
+                  <img class="direct-chat-img" src="{{ notification.actor.profile.profile_picture_url }}" alt="message user image">
                   <!-- /.notification-img -->
                   <div class="direct-chat-text">
-                    Is this template really for free? That's unbelievable!
+                    {{ notification.verb }}
                   </div>
                 </div> 
+                {% endfor %}
                    <!--end of first notification  -->
+                
 
-                   <!-- notifications -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-infos clearfix">                        
-                    <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                  </div>
-                  <!-- /.notification-infos -->
-                  <img class="direct-chat-img" src="{% static "./dist/img/AdminLTELogo.png" %}" alt="message user image">
-                  <!-- /.notification-img -->
-                  <div class="direct-chat-text">
-                    Is this template really for free? That's unbelievable!
-                  </div>
-                </div> 
-                   <!--end of second notification  -->
 
               </div>
               <!--/.direct-chat-messages-->
@@ -409,7 +399,7 @@
         <div class="card-body p-0">
           <ul class="products-list product-list-in-card pl-2 pr-2">
 
-            <!-- Tag Item -->
+            {% comment %} <!-- Tag Item -->
             <li class="item">
               <div class="product-img">
                 <img src="{% static "dist/img/default-150x150.png" %}" alt="Product Image" class="img-size-50">
@@ -422,7 +412,7 @@
                 </span>
               </div>
             </li>
-            <!-- /.item -->
+            <!-- /.item --> 
 
                  <!-- Tag Item -->
                  <li class="item">
@@ -437,7 +427,7 @@
                     </span>
                   </div>
                 </li>
-                <!-- /.item -->
+                <!-- /.item -->{% endcomment %}
            
           </ul>
         </div>
